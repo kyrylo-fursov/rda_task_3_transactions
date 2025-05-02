@@ -1,5 +1,16 @@
 USE ShopDB;
 
+-- Reset tables to make sure IDs start from 1 (for testing purposes only)
+DELETE FROM OrderItems;
+DELETE FROM Orders;
+DELETE FROM Customers;
+DELETE FROM Products;
+
+ALTER TABLE OrderItems AUTO_INCREMENT = 1;
+ALTER TABLE Orders AUTO_INCREMENT = 1;
+ALTER TABLE Customers AUTO_INCREMENT = 1;
+ALTER TABLE Products AUTO_INCREMENT = 1;
+
 INSERT INTO Products (Name, Description, Price, WarehouseAmount)
 VALUES ('AwesomeProduct', 'Product Description', 5, 42);
 SET @product_id = LAST_INSERT_ID();
